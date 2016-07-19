@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Template</title>
+	<script src="phaser.js"></script>
+
+	<!-- Class Files -->
+	<script src="TextBox.js"></script>
+
+</head>
+<body>
+
+<div id="gameContainer"></div>
+
+<script>
+	var game;
+	window.onload = function() {
+		game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameContainer', {preload: preload, create: create, update: update});
+	};
+
+	function preload(){
+
+
+	}
+
+	function create(){
+		game.stage.backgroundColor = "#4488AA";
+
+		//
+		// Specify variables
+		//
+		var x = 100;
+		var y = 100;
+		var width = 500;
+		var numberOfLines = 2;
+		var anchor = "top";  // top or bottom (default top)
+		var borderRadius = 15;
+		var textColor = "#fff";
+		var backgroundColor = "rgba(30, 30, 30, 0.5)";
+		//var text = "Hello my name is sam and I'm going to the movies.";
+		var text = "one two three four five six seven eight nine ten eleven twelve thriteen fourteen fifteen sixteen seventeen eightteen nineteen twenty twenty-one twenty-two thenty-three twenty-four twenty-five twenty-six twenty-seven twenty-eight twenty-nine thirty thirty-one thirty-two thenty-three thirty-four thirty-five thirty-six thirty-seven thirty-eight thirty-nine fourty fourty-one fourty-two fourty-three fourty-four fourty-five fourty-six fourty-seven fourty-eight fourty-nine fifty fifty-one fifty-two fifty-three fifty-four fifty-five fifty-six fifty-seven fifty-eight fifty-nine sixty sixty-one sixty-two sixty-three sixty-four sixty-five sixty-six sixty-seven sixty-eight sixty-nine seventy seventy-one seventy-two seventy-three seventy-four seventy-five seventy-six seventy-seven seventy-eight seventy-nine";
+
+		//
+		// Call constructor
+		//
+		var myTextBox = new TextBox(x, y, anchor, width, numberOfLines, text, borderRadius, textColor, backgroundColor);
+
+
+		setTimeout(function(){ myTextBox.showNext(); }, 1 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 2 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 3 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 4 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 5 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 6 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 7 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 8 * 3000);
+		setTimeout(function(){ myTextBox.showNext(); }, 9 * 3000);
+
+
+
+	}
+
+	function update(){
+
+	}
+</script>
+
+</body>
+</html>
