@@ -16,7 +16,9 @@ A text bubble class for phaser.
 
 - Note, the text bubble will automatically display text in segments of ```numberOfLines``` until the text ends at which time the text bubble disappears.   
 
-- Call ```myTextBox.showNext()``` method to prompt the text box to show the next lines of text.
+- Call ```myTextBox.showNext()``` method to prompt the text box to show the next lines of text. As per below, the demo calls this method when the spacebar is pressed.
+
+![](./step4.png)
 
 # live demo
 
