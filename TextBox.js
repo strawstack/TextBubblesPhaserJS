@@ -1,5 +1,9 @@
 TextBox = function (x, y, anchor, width, numberOfLines, t, borderRadius, textColor, backgroundColor) {
 
+  // private variable
+  //
+  var marker = undefined;
+
   // Set variables for Rounded Rect
   //
   var padding = 10;
@@ -43,21 +47,34 @@ TextBox = function (x, y, anchor, width, numberOfLines, t, borderRadius, textCol
   //
   this.showNext = function(){
     var speed = 5;
-    if(mergeText != undefined){
-        if(mergeText.length == 1 ){
-          animate(mergeText.shift(), "", -1, speed);
-          mergeText = undefined;
-          // TODO - show end marker
+    if(marker) marker.visible = false;  // hide marker until text is shown
 
-        }else{
-          animate(mergeText.shift(), "", -1, speed);
-          // TODO - show coninue marker
+    if(mergeText != undefined){
+        if(mergeText.length == 1 ){  // text will end
+          animate(mergeText.shift(), "", -1, speed, show_end_marker);
+          mergeText = undefined;
+          return true; // notify called that text continues
+
+        }else{  // text will continue
+          animate(mergeText.shift(), "", -1, speed, show_continue_marker);
+          return true; // notify called that text contines
 
         }
 
     }else{
-      console.log("text ended");
-      // delete text box, notify called that text is ended
+
+      // Dealloc objects, set to undefined in case method is called again on dead object
+      //
+      if(text) text.destroy();
+      text = undefined;
+
+      if(marker) marker.destroy();
+      marker = undefined;
+
+      // NOTE - this is a memory leak because bmd's can't be destroyed
+      bmd.clear();
+
+      return false;  // notify called that text is now ended
 
     }
   };
@@ -66,17 +83,20 @@ TextBox = function (x, y, anchor, width, numberOfLines, t, borderRadius, textCol
 
   // PRIVATE - renders passed in text via an animation
   //
-  function animate(t, str, index, delay){  // t = text, str = "", index = -1, delay = ms
+  function animate(t, str, index, delay, onComplete){  // t = text, str = "", index = -1, delay = ms
     if(index == -1){
       text.setText("");
       index += 1;
-      setTimeout(function(){ animate(t, str, index, delay); }, delay );
+      setTimeout(function(){ animate(t, str, index, delay, onComplete); }, delay );
 
     }else if( index < t.length ){
       str += t[index];
       text.setText(str);
       index += 1;
-      setTimeout(function(){ animate(t, str, index, delay); }, delay );
+      setTimeout(function(){ animate(t, str, index, delay, onComplete); }, delay );
+
+    }else{  // animation complete, fire callback
+      onComplete();
 
     }
   }
@@ -106,6 +126,8 @@ TextBox = function (x, y, anchor, width, numberOfLines, t, borderRadius, textCol
     return out;
   }
 
+  // PRIVATE - collects chopped text into blocks
+  //
   function merge(arr){
     var out = [];
     var blocks = Math.floor( arr.length / numberOfLines );
@@ -117,9 +139,34 @@ TextBox = function (x, y, anchor, width, numberOfLines, t, borderRadius, textCol
       out.push( temp );
     }
     out.push( arr.join("") );
+    if(out[out.length-1] == "") out.pop();
     return out;
-
   }
+
+  // PRIVATE - adds marker to text box on anim complete
+  //
+  function show_continue_marker(){
+    show_marker('continue');
+  }
+  function show_end_marker(){
+    show_marker('end');
+  }
+  function show_marker(name){
+    var _h = anchor != "bottom" ? y + h : y;
+    if( marker ){
+      marker.destroy();
+      marker = game.add.sprite(x + w/2, _h, name);
+      marker.scale.set(0.5);
+      marker.anchor.set(0.5);
+
+    }else{
+      marker = game.add.sprite(x + w/2, _h, name);
+      marker.scale.set(0.5);
+      marker.anchor.set(0.5);
+    }
+    marker.visible = true;
+  }
+
 };
 
 TextBox.prototype = Object.create(Phaser.Sprite.prototype);  // or Phaser.Text.prototype

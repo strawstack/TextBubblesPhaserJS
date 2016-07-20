@@ -20,26 +20,28 @@
 	};
 
 	function preload(){
-
+		game.load.image('continue', 'continue.png');
+		game.load.image('end', 'end.png');
+		game.load.image('time', 'Temple-of-Time.png');
 
 	}
 
 	function create(){
-		game.stage.backgroundColor = "#4488AA";
+		game.stage.backgroundColor = "#333";
+		game.add.sprite(0,0, 'time');
 
 		//
 		// Specify variables
 		//
-		var x = 100;
-		var y = 100;
+		var x = 150;
+		var y = 400;
 		var width = 500;
-		var numberOfLines = 2;
+		var numberOfLines = 3;
 		var anchor = "top";  // top or bottom (default top)
 		var borderRadius = 15;
 		var textColor = "#fff";
-		var backgroundColor = "rgba(30, 30, 30, 0.5)";
-		//var text = "Hello my name is sam and I'm going to the movies.";
-		var text = "one two three four five six seven eight nine ten eleven twelve thriteen fourteen fifteen sixteen seventeen eightteen nineteen twenty twenty-one twenty-two thenty-three twenty-four twenty-five twenty-six twenty-seven twenty-eight twenty-nine thirty thirty-one thirty-two thenty-three thirty-four thirty-five thirty-six thirty-seven thirty-eight thirty-nine fourty fourty-one fourty-two fourty-three fourty-four fourty-five fourty-six fourty-seven fourty-eight fourty-nine fifty fifty-one fifty-two fifty-three fifty-four fifty-five fifty-six fifty-seven fifty-eight fifty-nine sixty sixty-one sixty-two sixty-three sixty-four sixty-five sixty-six sixty-seven sixty-eight sixty-nine seventy seventy-one seventy-two seventy-three seventy-four seventy-five seventy-six seventy-seven seventy-eight seventy-nine";
+		var backgroundColor = "rgba(30, 30, 30, 0.8)";
+		var text = "Thank you, Link... Thanks to you, Ganondorf has been sealed inside the Evil Realm! Thus, peace will once again reign in this world... for a time. All the tragedy that has befallen Hyrule was my doing... I was so young... I could not comprehend the consequences of trying to control the Sacred Realm. I dragged you into it, too. Now it is time for me to make up for my mistakes... You must lay the Master Sword to rest and close the Door of Time... However, by doing this, the road between times will be closed... Link, give the Ocarina to me... As a Sage, I can return you to your original time with it. When peace returns to Hyrule... It will be time for us to say good-bye... Now, go home, Link. Regain your lost time! Home... where you are supposed to be... the way you are supposed to be... Thank you... Link... Good-bye.";
 
 		//
 		// Call constructor
@@ -47,17 +49,26 @@
 		var myTextBox = new TextBox(x, y, anchor, width, numberOfLines, text, borderRadius, textColor, backgroundColor);
 
 
-		setTimeout(function(){ myTextBox.showNext(); }, 1 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 2 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 3 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 4 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 5 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 6 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 7 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 8 * 3000);
-		setTimeout(function(){ myTextBox.showNext(); }, 9 * 3000);
+		// Call showNext every 3 sec until it returns false
+		//
+		/*
+		function callNext(){
+			var rtn = myTextBox.showNext();
+			if(rtn){
+				setTimeout(callNext, 3000);
 
+			}else{
+				delete myTextBox;
 
+			}
+		}
+		setTimeout(callNext, 3000);
+		*/
+
+		// Call showNext method on spacebar press
+		//
+		var next = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		next.onDown.add(function(){ myTextBox.showNext() }, this);
 
 	}
 
