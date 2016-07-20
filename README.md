@@ -6,4 +6,4 @@ View the [live demo]()
 
 # screenshot
 
-![](.screenshot.png)
+![](./screenshot.png)
