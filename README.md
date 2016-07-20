@@ -2,6 +2,14 @@
 
 A text bubble class for phaser.
 
+# live demo
+
+View the [live demo](https://strawstack.github.com/text-bubbles-for-phaser)
+
+# screenshot
+
+![](./screenshot.png)
+
 # how to use
 
 - Place script tag in document header ```<script src="TextBox.js"></script>```
@@ -19,11 +27,3 @@ A text bubble class for phaser.
 - Call ```myTextBox.showNext()``` method to prompt the text box to show the next lines of text. As per below, the demo calls this method when the spacebar is pressed.
 
 ![](./step4.png)
-
-# live demo
-
-View the [live demo](https://strawstack.github.com/text-bubbles-for-phaser)
-
-# screenshot
-
-![](./screenshot.png)
