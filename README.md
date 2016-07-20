@@ -4,7 +4,7 @@ A text bubble class for phaser. View the [live demo](https://strawstack.github.c
 
 # screenshot
 
-![](./screenshot.png)
+[![](./screenshot.png)](https://strawstack.github.com/text-bubbles-for-phaser)
 
 # how to use
 
