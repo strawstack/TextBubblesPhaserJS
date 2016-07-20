@@ -1,10 +1,6 @@
 # text-bubbles-for-phaser
 
-A text bubble class for phaser.
-
-# live demo
-
-View the [live demo](https://strawstack.github.com/text-bubbles-for-phaser)
+A text bubble class for phaser. View the [live demo](https://strawstack.github.com/text-bubbles-for-phaser)
 
 # screenshot
 
