@@ -10,7 +10,7 @@ A text bubble class for phaser.
 
 ![](./step2.png)
 
-- Set the xy coords, width, and line height. The chosen y coord will either be the top or bottom left corner of the text bubble depending on what ```anchor``` is set to (either "top" or "bottom"). Text color and background color can be set. Lastly, set ```text``` to the display text.
+- Set the ```x``` ```y```, ```width```, and ```numberOfLines```. (The chosen y coord will either be the top or bottom left corner of the text bubble depending on if ```anchor``` is set to "top" or "bottom". Set ```textColor``` and ```backgroundColor```. Set ```text``` to the desired text, and create an instance by calling the constructor as shown in the image.
 
 ![](./step3.png)
 
