@@ -23,3 +23,5 @@ A text bubble class for phaser. View the [live demo](https://strawstack.github.c
 - Call ```myTextBox.showNext()``` method to prompt the text box to show the next lines of text. As per below, the demo calls this method when the spacebar is pressed.
 
 ![](./step4.png)
+
+Developed by: [RichardHay.es](http://richardhay.es/)
