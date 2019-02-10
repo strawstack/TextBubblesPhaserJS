@@ -1,10 +1,10 @@
 # text-bubbles-for-phaser
 
-A text bubble class for phaser. View the [live demo](https://strawstack.github.com/text-bubbles-for-phaser)
+A text bubble class for phaser. View the [live demo](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
 
 # screenshot
 
-[![](./screenshot.png)](https://strawstack.github.com/text-bubbles-for-phaser)
+[![](./screenshot.png)](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
 
 # how to use
 
