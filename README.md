@@ -1,12 +1,12 @@
-# text-bubbles-for-phaser
+# Text Bubbles for PhaserJS
 
 A text bubble class for phaser. View the [live demo](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
 
-# screenshot
+# Screenshot
 
 [![](./screenshot.png)](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
 
-# how to use
+# How to Use
 
 - Place script tag in document header ```<script src="TextBox.js"></script>```
 
