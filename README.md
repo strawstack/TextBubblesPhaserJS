@@ -1,10 +1,14 @@
 # Text Bubbles for PhaserJS
 
-A text bubble class for phaser. View the [live demo](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
+A text bubble class for PhaserJS
+
+# Live Demo
+
+[View Live Demo](https://regularmemory.blog/TextBubblesPhaserJS/)
 
 # Screenshot
 
-[![](./screenshot.png)](http://xn--qxa.ws/Text-Bubbles-for-PhaserJS/)
+[![](./screenshot.png)](https://regularmemory.blog/TextBubblesPhaserJS/)
 
 # How to Use
 
