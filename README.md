@@ -4,11 +4,11 @@ A text bubble class for PhaserJS
 
 # Live Demo
 
-[View Live Demo](https://regularmemory.blog/TextBubblesPhaserJS/)
+[View Live Demo](https://strawstack.github.io/TextBubblesPhaserJS/)
 
 # Screenshot
 
-[![](./screenshot.png)](https://regularmemory.blog/TextBubblesPhaserJS/)
+[![](./screenshot.png)](https://strawstack.github.io/TextBubblesPhaserJS/)
 
 # How to Use
 
